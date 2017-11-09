@@ -7,50 +7,52 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+
 int Leggi_cifra()
 {
-char input, lettera;
-int cifra;
-input=getch();
-while((input<'0' && input!=13) || input>'f' || (input>'F' && input<'a') || (input>'9' &&
-input<'A'))
-{i
-nput=getch();
+    char input, lettera;
+    int cifra;
+    input=getch();
+    while((input<'0' && input!=13) || input>'f' || (input>'F' && input<'a') || (input>'9' && input<'A'))
+    {
+        input=getch();
+    }
+    printf("%c", input);
+    lettera=input;
+    if (lettera<='F' && lettera>='A')
+    {
+        cifra=lettera-'A'+10;
+    }
+    else if (lettera<='f' && lettera>='a')
+    {
+        cifra=lettera-'a'+10;
+    }
+    else
+    {
+        cifra=lettera-'0';
+    }
+    return(cifra);
+} 
+
+int Leggi_numero()
+{
+    int num, c, cifra;
+    num=0;
+    cifra=Leggi_cifra();    
+    for(c=0; c<6 && cifra>=0; c++)
+    {  
+        num=num*16+cifra;
+        cifra=Leggi_cifra();
+    }
+    return(num);
 }
-printf("%c", input);
-lettera=input;
-if (lettera<='F' && lettera>='A')
+
+int main(int argc, char *argv[])
 {
-cifra=lettera-'A'+10;
-}e
-lse if (lettera<='f' && lettera>='a')
-{
-cifra=lettera-'a'+10;
-}e
-lse
-{
-cifra=lettera-'0';
-}r
-eturn(cifra);
-} i
-nt Leggi_numero()
-{
-int num, c, cifra;
-num=0;
-cifra=Leggi_cifra();
-for(c=0; c<6 && cifra>=0; c++)
-{
-num=num*16+cifra;
-cifra=Leggi_cifra();
-}r
-eturn(num);
-}i
-nt main(int argc, char *argv[])
-{
-int numero;
-printf("Inserisci un numero binario di max 6 cifre: ");
-numero= Leggi_numero();
-printf("\nIl tuo numero in base decimale e': %d\n", numero);
-system("PAUSE");
-return 0;
+    int numero;
+    printf("Inserisci un numero binario di max 6 cifre: ");
+    numero= Leggi_numero();
+    printf("\nIl tuo numero in base decimale e': %d\n", numero);
+    system("PAUSE");
+    return 0;
 }

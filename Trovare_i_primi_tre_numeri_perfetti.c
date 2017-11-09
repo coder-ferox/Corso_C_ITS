@@ -5,33 +5,35 @@
 @param numeri perfetti da cercare (cNumPerf_totali)
 @return stampa i numeri perfetti trovati
 */
+
 #include <stdio.h>
 #include <stdlib.h>
+
 int main()
 {
-int cNumPerf_trovati=0;
-int cNumPerf_totali=3;
-int VdaVerificare=1;
-while (cNumPerf_trovati < cNumPerf_totali)
-{ i
-nt divisore=1;
-int somma=0;
-while (divisore < VdaVerificare)
-{
-if (VdaVerificare%divisore==0)
-{
-somma=somma+divisore;
-}d
-ivisore++;
-}
-if (somma==VdaVerificare)
-{
-printf("\n%do numero perfetto trovato = %d",cNumPerf_trovati+1,VdaVerificare);
-cNumPerf_trovati++;
-}s
-omma=0;
-divisore=1;
-VdaVerificare++;
-} r
-eturn 0;
+    int cNumPerf_trovati=0;
+    int cNumPerf_totali=3;
+    int VdaVerificare=1;
+    while (cNumPerf_trovati < cNumPerf_totali)
+    { 
+        int divisore=1;
+        int somma=0;
+        while (divisore < VdaVerificare)
+        {
+            if (VdaVerificare%divisore==0)
+            {
+                somma=somma+divisore;
+            }
+            divisore++;
+        }
+        if (somma==VdaVerificare)
+        {
+            printf("\n%do numero perfetto trovato = %d",cNumPerf_trovati+1,VdaVerificare);
+            cNumPerf_trovati++;
+        }
+        somma=0;
+        divisore=1;
+        VdaVerificare++;
+    } 
+    return 0;
 }

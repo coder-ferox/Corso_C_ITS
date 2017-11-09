@@ -19,7 +19,7 @@ int Leggi_cifra()
 
   while((input<'0' && input!=13) || input>'f' || (input>'F' && input<'a') || (input>'9' && input<'A'))
     {
-    input=getch();
+      input=getch();
     }
   printf("%c", input);
 
